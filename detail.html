@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Detail</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f1ab15;
+        }
+        .detail-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="detail-container" id="detailContent"></div>
+
+    <script>
+        function getTopicDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            
+            const topicDetails = {
+                1: { title: "Topic 1", content: "Detailed information about Topic 1..." },
+                2: { title: "Topic 2", content: "Detailed information about Topic 2..." },
+                3: { title: "Topic 3", content: "Detailed information about Topic 3..." },
+                4: { title: "Topic 4", content: "Detailed information about Topic 4..." },
+                5: { title: "Topic 5", content: "Detailed information about Topic 5..." },
+                6: { title: "Topic 6", content: "Detailed information about Topic 6..." },
+                7: { title: "Topic 7", content: "Detailed information about Topic 7..." },
+                8: { title: "Topic 8", content: "Detailed information about Topic 8..." },
+                9: { title: "Topic 9", content: "Detailed information about Topic 9..." },
+                10: { title: "Topic 10", content: "Detailed information about Topic 10..." },
+                11: { title: "Topic 11", content: "Detailed information about Topic 11..." },
+                12: { title: "Topic 12", content: "Detailed information about Topic 12..." },
+            };
+
+            const detail = topicDetails[id];
+            if (detail) {
+                document.title = detail.title;
+                document.getElementById('detailContent').innerHTML = `
+                    <h1>${detail.title}</h1>
+                    <p>${detail.content}</p>
+                `;
+            }
+        }
+
+        getTopicDetails();
+    </script>
+</body>
+</html>

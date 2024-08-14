@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 Card Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f05e;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .card {
+            width: 250px;
+            margin: 15px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 15px;
+        }
+        h2 {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        p {
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="cardContainer"></div>
+
+    <script>
+        const cardData = [
+            { id: 1, title: "Topic 1", description: "description of Topic 1", image: "https://thumbs.dreamstime.com/b/topic-text-written-orange-grungy-round-stamp-vintage-209319332.jpg" },
+            { id: 2, title: "Topic 2", description: "description of Topic 2", image: "https://thumbs.dreamstime.com/b/topic-text-written-orange-grungy-round-stamp-vintage-209319332.jpg" },
+            { id: 3, title: "Topic 3", description: "description of Topic 3", image: "https://thumbs.dreamstime.com/b/topic-text-written-orange-grungy-round-stamp-vintage-209319332.jpg" },
+            { id: 4, title: "Topic 4", description: "description of Topic 4", image: "https://thumbs.dreamstime.com/b/topic-text-written-orange-grungy-round-stamp-vintage-209319332.jpg" },
+            { id: 5, title: "Topic 5", description: "description of Topic 5", image: "https://thumbs.dreamstime.com/b/topic-text-written-orange-grungy-round-stamp-vintage-209319332.jpg" },
+            { id: 6, title: "Topic 6", description: "description of Topic 6", image: "https://thumbs.dreamstime.com/b/topic-text-written-orange-grungy-round-stamp-vintage-209319332.jpg" },
+            { id: 7, title: "Topic 7", description: "description of Topic 7", image: "https://thumbs.dreamstime.com/b/topic-text-written-orange-grungy-round-stamp-vintage-209319332.jpg" },
+            { id: 8, title: "Topic 8", description: "description of Topic 8", image: "https://thumbs.dreamstime.com/b/topic-text-written-orange-grungy-round-stamp-vintage-209319332.jpg" },
+            { id: 9, title: "Topic 9", description: "description of Topic 9", image: "https://thumbs.dreamstime.com/b/topic-text-written-orange-grungy-round-stamp-vintage-209319332.jpg" },
+            { id: 10, title: "Topic 10", description: "description of Topic 10", image: "https://thumbs.dreamstime.com/b/topic-text-written-orange-grungy-round-stamp-vintage-209319332.jpg" },
+            { id: 11, title: "Topic 11", description: "description of Topic 11", image: "https://thumbs.dreamstime.com/b/topic-text-written-orange-grungy-round-stamp-vintage-209319332.jpg" },
+            { id: 12, title: "Topic 12", description: "description of Topic 12", image: "https://thumbs.dreamstime.com/b/topic-text-written-orange-grungy-round-stamp-vintage-209319332.jpg" },
+        ];
+
+        function createCards() {
+            const container = document.getElementById('cardContainer');
+            cardData.forEach(card => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'card';
+                cardElement.innerHTML = `
+                    <img src="${card.image}">
+                    <div class="card-content">
+                        <h2>${card.title}</h2>
+                        <p>${card.description}</p>
+                    </div>
+                `;
+                cardElement.addEventListener('click', () => openDetailPage(card.id));
+                container.appendChild(cardElement);
+            });
+        }
+
+        function openDetailPage(id) {
+            window.open(`detail.html?id=${id}`, '_blank');
+        }
+
+        createCards();
+    </script>
+</body>
+</html>
